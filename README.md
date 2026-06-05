@@ -45,11 +45,9 @@ pip install justserpapi
 ```python
 from datetime import date, timedelta
 from justserpapi import Client
-from justserpapi.api.google_api_api import GoogleAPIApi
 
 with Client(api_key="YOUR_API_KEY") as client:
-    google_api = GoogleAPIApi(client.api_client)
-    response = google_api.hotels_search(
+    response = client.google.hotels.search(
         query="hotels in New York",
         check_in_date=(date.today() + timedelta(days=30)).isoformat(),
         check_out_date=(date.today() + timedelta(days=33)).isoformat(),
